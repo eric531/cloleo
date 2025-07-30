@@ -95,40 +95,82 @@ class ProductController extends Controller
         }
     }
 
-
     public function edit(Product $product)
     {
         $categories = Category::all();
-        return view('admin.products.edit', compact('product', 'categories'));
+        $typeProducts = TypeProduct::all();
+        return view('admin.products.edit', compact('product', 'categories', 'typeProducts'));
     }
+
 
     public function update(Request $request, Product $product)
     {
-        $request->validate(
-            [
-                'name' => 'required|string|max:255',
-                'description' => 'nullable|string',
-                'price' => 'required|numeric',
-                'stock' => 'required|integer',
-                'image' => 'nullable|image|max:2048',
-            ],
-            [
+        DB::beginTransaction();
+
+        try {
+            // Validation des données avec 'sometimes' pour permettre des mises à jour partielles
+            $validator = Validator::make($request->all(), [
+                'name' => 'sometimes|string|max:255',
+                'description' => 'sometimes|string',
+                'price' => 'sometimes|numeric',
+                'old_price' => 'sometimes|numeric',
+                'stock' => 'sometimes|integer',
+                'image' => 'sometimes|image|max:2048',
+                'category_id' => 'sometimes|exists:categories,id',
+                'type_product_id' => 'sometimes|exists:type_products,id',
+            ], [
                 'name.required' => 'Le nom du produit est obligatoire.',
-                'description.required' => 'La description du produit est obligatoire.',
                 'price.required' => 'Le prix du produit est obligatoire.',
                 'stock.required' => 'Le stock du produit est obligatoire.',
-            ]
-        );
+                'category_id.exists' => 'La catégorie sélectionnée n\'existe pas.',
+                'type_product_id.exists' => 'Le type de produit sélectionné n\'existe pas.',
+                'image.image' => 'Le fichier doit être une image.',
+                'image.max' => 'L\'image ne doit pas dépasser 2 Mo.',
+            ]);
 
+            // Vérification des erreurs de validation
+            if ($validator->fails()) {
+                if ($request->ajax()) {
+                    return response()->json(['success' => false, 'errors' => $validator->errors()], 422);
+                } else {
+                    return back()->withErrors($validator)->withInput();
+                }
+            }
 
-        $product->update($request->all());
+            // Récupération des données validées
+            $validated = $validator->validated();
 
-        if ($request->hasFile('image')) {
-            $product->image = $request->file('image')->store('products', 'public');
-            $product->save();
+            // Gestion de l'image
+            if ($request->hasFile('image')) {
+                // Suppression de l'ancienne image si elle existe
+                if ($product->image) {
+                    Storage::disk('public')->delete(str_replace('/storage/', '', $product->image));
+                }
+
+                // Téléversement de la nouvelle image
+                $file = $request->file('image');
+                $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
+                $path = $file->storeAs('products', $filename, 'public');
+                $validated['image'] = '/storage/' . $path;
+            }
+
+            // Mise à jour du produit avec les données validées uniquement
+            $product->update($validated);
+
+            DB::commit();
+
+            // Réponse adaptée selon le type de requête
+            return $request->ajax()
+                ? response()->json(['success' => true, 'message' => 'Produit mis à jour avec succès.'])
+                : redirect()->route('admin.products.index')->with('success', 'Produit mis à jour.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            // Gestion des erreurs avec réponse adaptée
+            return $request->ajax()
+                ? response()->json(['success' => false, 'message' => $e->getMessage()], 500)
+                : redirect()->back()->with('error', $e->getMessage())->withInput();
         }
-
-        return redirect()->route('admin.products.index')->with('success', 'Produit mis à jour.');
     }
 
     public function destroy(Product $product)
