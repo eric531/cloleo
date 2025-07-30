@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
@@ -34,7 +35,7 @@ class ProductController extends Controller
         DB::beginTransaction();
 
         try {
-            $validated = $request->validate([
+            $validator = Validator::make($request->all(), [
                 'name' => 'required|string|max:255',
                 'description' => 'required|string',
                 'price' => 'required|numeric',
@@ -43,13 +44,24 @@ class ProductController extends Controller
                 'image' => 'nullable|image|max:5048',
                 'category_id' => 'required|exists:categories,id',
                 'type_product_id' => 'required|exists:type_products,id',
-                'created_by' => 'nullable|string',
+                'created_by' => 'required|string',
+            ], [
+                'name.required' => 'Le nom du produit est obligatoire.',
+                'description.required' => 'La description du produit est obligatoire.',
+                'price.required' => 'Le prix du produit est obligatoire.',
+                'stock.required' => 'Le stock du produit est obligatoire.',
+                'category_id.required' => 'La catégorie du produit est obligatoire.',
+                'type_product_id.required' => 'Le type de produit est obligatoire.',
             ]);
 
-
-            if($request->input('created_by') == null) {
-                $validated['created_by'] = "Cloleo";
+            // Vérification générale
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
             }
+
+
+            // Récupération des données validées
+            $validated = $validator->validated();
             // Initialisation du nom de fichier (utile pour suppression si échec)
             $filename = null;
 
@@ -73,9 +85,9 @@ class ProductController extends Controller
             DB::rollBack();
 
             // Si un fichier avait été sauvegardé, on le supprime
-            if ($filename) {
-                Storage::disk('public')->delete('products/' . $filename);
-            }
+            // if ($filename) {
+            //     Storage::disk('public')->delete('products/' . $filename);
+            // }
 
             return $request->ajax()
                 ? response()->json(['success' => false, 'message' => $e->getMessage()], 422)
@@ -92,13 +104,22 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'price' => 'required|numeric',
-            'stock' => 'required|integer',
-            'image' => 'nullable|image|max:2048',
-        ]);
+        $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'description' => 'nullable|string',
+                'price' => 'required|numeric',
+                'stock' => 'required|integer',
+                'image' => 'nullable|image|max:2048',
+            ],
+            [
+                'name.required' => 'Le nom du produit est obligatoire.',
+                'description.required' => 'La description du produit est obligatoire.',
+                'price.required' => 'Le prix du produit est obligatoire.',
+                'stock.required' => 'Le stock du produit est obligatoire.',
+            ]
+        );
+
 
         $product->update($request->all());
 

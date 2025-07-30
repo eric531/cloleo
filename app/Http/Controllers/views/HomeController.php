@@ -57,7 +57,7 @@ class HomeController extends Controller
                         })
                         ->inRandomOrder()
                         ->get();
-                        
+
         // Récupérer toutes les catégories pour le menu
         $data['pubs'] = Pub::where('created_at', '>', now()->subDays(30))->get();
         $data['categories'] = Category::all();

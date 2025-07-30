@@ -15,7 +15,7 @@ class AddCreatedByToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->string('created_by')->nullable()->after('image');
+            $table->string('created_by')->after('image');
         });
     }
 

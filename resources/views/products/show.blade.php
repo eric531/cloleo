@@ -26,36 +26,37 @@
                                         <!-- MAIN SLIDES -->
                                         <div class="product-image-slider">
                                             <figure class="border-radius-10">
-                                                <img src="{{ asset('assets/imgs/shop/product-16-2.jpg') }}" alt="product image" />
+                                                <img src="{{ asset($product->image) }}" alt="product image" />
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="{{ asset('assets/imgs/shop/product-16-2.jpg') }}" alt="product image" />
+                                                <img src="{{ asset($product->image) }}" alt="product image" />
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="{{ asset('assets/imgs/shop/product-16-2.jpg') }}" alt="product image" />
+                                                <img src="{{ asset($product->image) }}" alt="product image" />
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="{{ asset('assets/imgs/shop/product-16-2.jpg') }}" alt="product image" />
+                                                <img src="{{ asset($product->image) }}" alt="product image" />
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="{{ asset('assets/imgs/shop/product-16-2.jpg') }}" alt="product image" />
+                                                <img src="{{ asset($product->image) }}" alt="product image" />
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="{{ asset('assets/imgs/shop/product-16-2.jpg') }}" alt="product image" />
+                                                <img src="{{ asset($product->image) }}" alt="product image" />
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="{{ asset('assets/imgs/shop/product-16-2.jpg') }}" alt="product image" />
+                                                <img src="{{ asset($product->image) }}" alt="product image" />
                                             </figure>
+
                                         </div>
                                         <!-- THUMBNAILS -->
                                         <div class="slider-nav-thumbnails">
-                                            <div><img src="{{ asset('assets/imgs/shop/thumbnail-3.jpg') }}" alt="product image" /></div>
-                                            <div><img src="{{ asset('assets/imgs/shop/thumbnail-3.jpg') }}" alt="product image" /></div>
-                                            <div><img src="{{ asset('assets/imgs/shop/thumbnail-3.jpg') }}" alt="product image" /></div>
-                                            <div><img src="{{ asset('assets/imgs/shop/thumbnail-3.jpg') }}" alt="product image" /></div>
-                                            <div><img src="{{ asset('assets/imgs/shop/thumbnail-3.jpg') }}" alt="product image" /></div>
-                                            <div><img src="{{ asset('assets/imgs/shop/thumbnail-3.jpg') }}" alt="product image" /></div>
-                                            <div><img src="{{ asset('assets/imgs/shop/thumbnail-3.jpg') }}" alt="product image" /></div>
+                                            <div><img src="{{ asset($product->image)  }}" alt="product image" /></div>
+                                            <div><img src="{{ asset($product->image)  }}" alt="product image" /></div>
+                                            <div><img src="{{ asset($product->image)  }}" alt="product image" /></div>
+                                            <div><img src="{{ asset($product->image)  }}" alt="product image" /></div>
+                                            <div><img src="{{ asset($product->image)  }}" alt="product image" /></div>
+                                            <div><img src="{{ asset($product->image)  }}" alt="product image" /></div>
+                                            <div><img src="{{ asset($product->image)  }}" alt="product image" /></div>
                                         </div>
                                     </div>
                                     <!-- End Gallery -->
@@ -130,14 +131,12 @@
 
                                         <div class="font-xs">
                                             <ul class="mr-50 float-start">
-                                                <li class="mb-5">Type: <span class="text-brand">Organic</span></li>
-                                                <li class="mb-5">MFG:<span class="text-brand"> Jun 4.2025</span></li>
-                                                <li>LIFE: <span class="text-brand">70 days</span></li>
+                                                <li class="mb-5">Auteur: <span class="text-brand">{{ $product->created_by }}</span></li>
+
                                             </ul>
                                             <ul class="float-start">
-                                                <li class="mb-5">SKU: <a href="#">FWM15VKT</a></li>
-                                                <li class="mb-5">Tags: <a href="#" rel="tag">Snack</a>, <a href="#" rel="tag">Organic</a>, <a href="#" rel="tag">Brown</a></li>
-                                                <li>Stock:<span class="ml-5 in-stock text-brand">8 Items In Stock</span></li>
+
+                                                <li>Stock:<span class="ml-5 in-stock text-brand">{{ $product->stock }}</span></li>
                                             </ul>
                                         </div>
                                     </div>

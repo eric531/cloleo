@@ -1,49 +1,6 @@
 @extends('admin.template')
 
 @section('admin')
-    {{-- <h1>Ajouter un produit</h1>
-
-    @if ($errors->any())
-        <div style="color: red;">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
-    <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-
-        <label>Nom :</label>
-        <input type="text" name="name" value="{{ old('name') }}" required>
-
-        <label>Description :</label>
-        <textarea name="description">{{ old('description') }}</textarea>
-
-        <label>Prix :</label>
-        <input type="number" step="0.01" name="price" value="{{ old('price') }}" required>
-
-        <label>Stock :</label>
-        <input type="number" name="stock" value="{{ old('stock') }}" required>
-
-        <label>Catégorie :</label>
-        <select name="category_id" required>
-            <option value="">-- Sélectionner une catégorie --</option>
-            @foreach($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
-            @endforeach
-        </select>
-
-        <label>Image :</label>
-        <input type="file" name="image">
-
-        <button type="submit">Ajouter le produit</button>
-    </form>
-
-    <a href="{{ route('admin.products.index') }}">Retour à la liste des produits</a> --}}
-
 
     <main class="main-wrap">
        @include('admin.header')
@@ -59,6 +16,25 @@
                         </div>
                     </div>
                 </div>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                        @foreach ($errors->all() as $message)
+                            <li>{{ $message }}</li>
+                        @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                @if (session()->has('success'))
+
+                    <div class="alert alert-success">
+                        {{ session()->get('success') }}
+                    </div>
+
+                @endif
+
+
                 <div class="col-lg-6">
                     <div class="mb-4 card">
                         <div class="card-header">

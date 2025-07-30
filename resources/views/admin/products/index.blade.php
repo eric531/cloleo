@@ -7,8 +7,8 @@
 <section class="content-main">
     <div class="content-header">
         <div>
-            <h2 class="content-title card-title">Products grid</h2>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <h2 class="content-title card-title">Products</h2>
+            {{-- <p>Lorem ipsum dolor sit amet.</p> --}}
         </div>
         <div>
             <a href="#" class="rounded btn btn-light font-md">Export</a>
@@ -16,6 +16,14 @@
             <a href="{{ route('admin.products.create') }}" class="rounded btn btn-primary btn-sm">Create new</a>
         </div>
     </div>
+                 @if (session()->has('success'))
+
+                    <div class="alert alert-success">
+                        {{ session()->get('success') }}
+                    </div>
+
+                @endif
+                
     <div class="mb-4 card">
         <header class="card-header">
             <div class="row gx-3">
