@@ -53,14 +53,14 @@
                     <div class="content-header">
                         <h2 class="content-title">Ajouter Nouveau produit</h2>
                         <div>
-                            <a href="{{ route('admin.products.index') }}" class="btn btn-light rounded font-sm mr-5 text-body hover-up">Voir les Produits</a>
-                            <a href="{{ route('etiquette.index') }}" class="btn btn-warning rounded font-sm hover-up">Créer l'etiquette</a>
-                            <button type="submit" form="productForm" class="btn btn-md rounded font-sm hover-up">Ajouter</button>
+                            <a href="{{ route('admin.products.index') }}" class="mr-5 rounded btn btn-light font-sm text-body hover-up">Voir les Produits</a>
+                            <a href="{{ route('etiquette.index') }}" class="rounded btn btn-warning font-sm hover-up">Créer l'etiquette</a>
+                            <button type="submit" form="productForm" class="rounded btn btn-md font-sm hover-up">Ajouter</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="card mb-4">
+                    <div class="mb-4 card">
                         <div class="card-header">
                             <h4>Fondamental</h4>
                         </div>
@@ -97,16 +97,25 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-4">
-                                    <label class="form-label">Tax rate</label>
-                                    <input type="text" placeholder="%" name="tax_rate" class="form-control" />
+
+
+                                <div class="row">
+
+                                    <div class="col-lg-4">
+                                        <div class="mb-4">
+                                            <label class="form-label">Par</label>
+                                            <input placeholder="auteur du produit" name="created_by" type="text" class="form-control" />
+                                        </div>
+                                    </div>
+
                                 </div>
+
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="card mb-4">
+                    <div class="mb-4 card">
                         <div class="card-header">
                             <h4>Image Produit</h4>
                         </div>
@@ -117,13 +126,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card mb-4">
+                    <div class="mb-4 card">
                         <div class="card-header">
                             <h4>Organisation</h4>
                         </div>
                         <div class="card-body">
                             <div class="row gx-2">
-                                <div class="col-sm-6 mb-3">
+                                <div class="mb-3 col-sm-6">
                                     <label class="form-label">Category</label>
                                     <select class="form-select" name="category_id" form="productForm">
                                         @foreach($categories as $category)
@@ -131,7 +140,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-sm-6 mb-3">
+                                <div class="mb-3 col-sm-6">
                                     <label class="form-label">Type</label>
                                     <select class="form-select" name="type_product_id" form="productForm">
                                         @foreach($types as $type)

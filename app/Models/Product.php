@@ -20,7 +20,8 @@ class Product extends Model
         'image',
         'type_product_id',
         'category_id',
-        
+        'created_by',
+
 
     ];
 
@@ -36,7 +37,7 @@ class Product extends Model
     public function favorites()
     {
         return $this->hasMany(Favorite::class);
-    }  
+    }
 
     public function pub()
     {

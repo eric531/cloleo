@@ -42,16 +42,16 @@
                     <span class="ml-5 font-small text-muted"> (3.5)</span>
                 </div>
                 <div>
-                    <span class="font-small text-muted">By <a
-                            href="{{ route('product.show', $product->id) }}">Stouffer</a></span>
+                    <span class="font-small text-muted">Par <a
+                            href="{{ route('product.show', $product->id) }}">{{ $product->created_by }}</a></span>
                 </div>
                 <div class="product-card-bottom">
                     <div class="product-price">
                         @if($product->price == null)
-                            <span>  {{ $product->old_price }} XOF</span>
+                            <span>  {{ $product->old_price }} CfA</span>
                         @else
                             <span>  {{ $product->price }} XOF</span>
-                            <span class="old-price">{{ $product->old_price}} XOF</span>
+                            <span class="old-price">{{ $product->old_price}} CFA</span>
                         @endif
                     </div>
                     <div class="add-cart">

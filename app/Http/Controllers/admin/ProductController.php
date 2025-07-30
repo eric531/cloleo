@@ -43,8 +43,13 @@ class ProductController extends Controller
                 'image' => 'nullable|image|max:5048',
                 'category_id' => 'required|exists:categories,id',
                 'type_product_id' => 'required|exists:type_products,id',
+                'created_by' => 'nullable|string',
             ]);
 
+
+            if($request->input('created_by') == null) {
+                $validated['created_by'] = "Cloleo";
+            }
             // Initialisation du nom de fichier (utile pour suppression si échec)
             $filename = null;
 
@@ -78,31 +83,6 @@ class ProductController extends Controller
         }
     }
 
-    // protected function copyImageToPublic($path)
-    // {
-    //     $source = storage_path('app/public/' . $path);
-    //     $destination = public_path('storage/' . $path);
-
-    //     Log::info("Attempting to copy from $source to $destination");
-
-    //     if (!file_exists(dirname($destination))) {
-    //         Log::info("Creating directory: " . dirname($destination));
-    //         if (!mkdir(dirname($destination), 0755, true)) {
-    //             Log::error("Failed to create directory: " . dirname($destination));
-    //             return;
-    //         }
-    //     }
-
-    //     if (!file_exists($destination)) {
-    //         Log::info("Copying file from $source to $destination");
-    //         if (!copy($source, $destination)) {
-    //             Log::error("Failed to copy file from $source to $destination");
-    //             return;
-    //         }
-    //     } else {
-    //         Log::info("Destination file already exists: $destination");
-    //     }
-    // }
 
     public function edit(Product $product)
     {
