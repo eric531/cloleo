@@ -187,7 +187,7 @@
                 </div>
                 <div class="hotline d-lg-inline-flex">
                     <img src="{{asset('assets/imgs/theme/icons/phone-call.svg')}}" alt="hotline" />
-                    <p>1900 - 8888<span>24/7 Support Center</span></p>
+                    <p>+225 0787413001<span>24/7 Centre d'assistance</span></p>
                 </div>
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
