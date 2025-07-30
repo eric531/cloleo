@@ -6,13 +6,15 @@
                     <div class="position-relative newsletter-inner">
                         <div class="newsletter-content">
                             <h2 class="mb-20">
-                                Stay home & get your daily <br />
-                                needs from our shop
-                            </h2>
-                            <p class="mb-45">Start You'r Daily Shopping with <span class="text-brand">Nest Mart</span></p>
+                                    Restez chez vous et achetez vos
+                                    produits de première
+                                     <br />
+                                    nécessité dans notre boutique
+                                </h2>
+                                <p class="mb-45">Commencez vos achats quotidiens avec <span class="text-brand">Cloleo</span></p>
                             <form class="form-subcriber d-flex">
-                                <input type="email" placeholder="Your emaill address" />
-                                <button class="btn" type="submit">Subscribe</button>
+                                <input type="email" placeholder="Votre adresse email" />
+                                <button class="btn" type="submit">S'inscrire</button>
                             </form>
                         </div>
                         <img src="{{asset('assets/imgs/theme/icons/icon.svg')}}" alt="newsletter" />
@@ -94,7 +96,7 @@
         </div>
     </section>
     <section class="section-padding footer-mid">
-        <div class="container pt-15 pb-20">
+        <div class="container pb-20 pt-15">
             <div class="row">
                 <div class="col">
                     <div class="widget-about font-md mb-md-3 mb-lg-3 mb-xl-0 wow animate__animated animate__fadeInUp" data-wow-delay="0">
@@ -176,9 +178,9 @@
                 <div class="footer-bottom"></div>
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6">
-                <p class="font-sm mb-0">&copy; 2025, <strong class="text-brand">Nest</strong> - HTML Ecommerce Template <br />All rights reserved</p>
+                <p class="mb-0 font-sm">&copy; 2025, <strong class="text-brand">Nest</strong> - HTML Ecommerce Template <br />All rights reserved</p>
             </div>
-            <div class="col-xl-4 col-lg-6 text-center d-none d-xl-block">
+            <div class="text-center col-xl-4 col-lg-6 d-none d-xl-block">
                 <div class="hotline d-lg-inline-flex mr-30">
                     <img src="{{asset('assets/imgs/theme/icons/phone-call.svg')}}" alt="hotline" />
                     <p>1900 - 6666<span>Working 8:00 - 22:00</span></p>

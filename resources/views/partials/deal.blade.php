@@ -1,14 +1,14 @@
-<section class="section-padding pb-5">
+<section class="pb-5 section-padding">
     <div class="container">
         <div class="section-title wow animate__animated animate__fadeIn" data-wow-delay="0">
             <h3 class="">Deals du jour</h3>
-            <a class="show-all" href="shop-grid-right.html">
+            <a class="show-all" href="#">
                 Voir tous les deals
                 <i class="fi-rs-angle-right"></i>
             </a>
         </div>
 
-    
+
         <div class="row">
             @foreach ($deals->take(4) as $deal)
                 <div class="col-xl-3 col-lg-4 col-md-6">
@@ -31,7 +31,7 @@
                                     <div class="product-rate d-inline-block">
                                         <div class="product-rating" style="width: 90%"></div>
                                     </div>
-                                    <span class="font-small ml-5 text-muted"> (4.0)</span>
+                                    <span class="ml-5 font-small text-muted"> (4.0)</span>
                                 </div>
                                 <div>
                                     <span class="font-small text-muted">By <a href="vendor-details-1.html">NestFood</a></span>
@@ -43,7 +43,7 @@
                                     </div>
                                     <div class="add-cart">
                                         <a class="add" href="shop-cart.html">
-                                            <i class="fa fa-shopping-cart mr-5"></i>Ajouter
+                                            <i class="mr-5 fa fa-shopping-cart"></i>Ajouter
                                         </a>
                                     </div>
                                 </div>
@@ -52,6 +52,6 @@
                     </div>
                 </div>
             @endforeach
-        </div> 
+        </div>
     </div>
 </section>

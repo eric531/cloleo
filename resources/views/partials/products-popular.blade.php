@@ -56,7 +56,7 @@
                     </div>
                     <div class="add-cart">
                         <a class="add button-add-to-cart" data-url="{{ route('cart.add', $product->id) }}" href="javascript:void(0);">
-                            <i class="mr-5 fi-rs-shopping-cart"></i>Add
+                            <i class="mr-5 fi-rs-shopping-cart"></i>Ajouter
                         </a>
                     </div>
                 </div>

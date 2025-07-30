@@ -12,7 +12,7 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin/assets/imgs/theme/favicon.svg') }}" />
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/imgs/theme/logo.png')}}" />
     <!-- Template CSS -->
     <script src="{{ asset('admin/assets/imgs/theme/favicon.svg') }}"></script>
     <link href="{{ asset('admin/assets/css/main.css') }}" rel="stylesheet" type="text/css" /></head>
@@ -21,8 +21,8 @@
     <div class="screen-overlay"></div>
     <aside class="navbar-aside" id="offcanvas_aside">
         <div class="aside-top">
-            <a href="index.html" class="brand-wrap">
-                <img src="assets/imgs/theme/logo.svg" class="logo" alt="Nest Dashboard" />
+            <a href="{{ route('home') }}" class="brand-wrap">
+                <img src="{{ asset('assets/imgs/theme/logo.png') }}" class="logo" alt="Nest Dashboard" />
             </a>
             <div>
                 <button class="btn btn-icon btn-aside-minimize"><i class="text-muted material-icons md-menu_open"></i></button>
@@ -31,13 +31,13 @@
         <nav>
             <ul class="menu-aside">
                 <li class="menu-item active">
-                    <a class="menu-link" href="index.html">
+                    <a class="menu-link" href="{{ route('home') }}">
                         <i class="icon material-icons md-home"></i>
                         <span class="text">Dashboard</span>
                     </a>
                 </li>
                 <li class="menu-item has-submenu">
-                    <a class="menu-link" href="page-products-list.html">
+                    <a class="menu-link" href="">
                         <i class="icon material-icons md-shopping_bag"></i>
                         <span class="text">Categories / Produits</span>
                     </a>
@@ -95,7 +95,7 @@
                 <li class="menu-item">
                     <a class="menu-link" href="page-reviews.html">
                         <i class="icon material-icons md-comment"></i>
-                        <span class="text">Reviews</span>
+                        <span class="text">Avis</span>
                     </a>
                 </li>
 

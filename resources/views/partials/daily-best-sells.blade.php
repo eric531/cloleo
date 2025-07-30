@@ -52,7 +52,7 @@
                                     <div class="progress-bar" role="progressbar" style="width: {{ ($product->sold / $product->stock) * 100 }}%"
                                         aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
-                                <span class="font-xs text-heading">Vendus: {{ $product->sold }}/{{ $product->stock }}</span>
+                                <span class="font-xs text-heading">Stock: {{ $product->sold }}/{{ $product->stock }}</span>
                             </div>
                             {{-- <a href="{{ route('cart.add', $product->id) }}" class="btn w-100 hover-up">
                                 <i class="mr-5 fi-rs-shopping-cart"></i>Ajouter au panier

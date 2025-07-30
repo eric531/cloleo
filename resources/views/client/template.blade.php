@@ -74,7 +74,7 @@
                                         <img class="svgInject" alt="Nest" src="assets/imgs/theme/icons/icon-compare.svg" />
                                         <span class="pro-count blue">3</span>
                                     </a>
-                                    <a href="shop-compare.html"><span class="lable ml-0">Compare</span></a>
+                                    <a href="shop-compare.html"><span class="ml-0 lable">Compare</span></a>
                                 </div>
                                 <div class="header-action-icon-2">
                                     <a href="shop-wishlist.html">
@@ -131,15 +131,15 @@
                                     <a href="page-account.html">
                                         <img class="svgInject" alt="Nest" src="assets/imgs/theme/icons/icon-user.svg" />
                                     </a>
-                                    <a href="page-account.html"><span class="lable ml-0">Account</span></a>
+                                    <a href="page-account.html"><span class="ml-0 lable">Account</span></a>
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                         <ul>
-                                            <li><a href="page-account.html"><i class="fi fi-rs-user mr-10"></i>My Account</a></li>
-                                            <li><a href="page-account.html"><i class="fi fi-rs-location-alt mr-10"></i>Order Tracking</a></li>
-                                            <li><a href="page-account.html"><i class="fi fi-rs-label mr-10"></i>My Voucher</a></li>
-                                            <li><a href="shop-wishlist.html"><i class="fi fi-rs-heart mr-10"></i>My Wishlist</a></li>
-                                            <li><a href="page-account.html"><i class="fi fi-rs-settings-sliders mr-10"></i>Setting</a></li>
-                                            <li><a href="page-login.html"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</a></li>
+                                            <li><a href="page-account.html"><i class="mr-10 fi fi-rs-user"></i>My Account</a></li>
+                                            <li><a href="page-account.html"><i class="mr-10 fi fi-rs-location-alt"></i>Order Tracking</a></li>
+                                            <li><a href="page-account.html"><i class="mr-10 fi fi-rs-label"></i>My Voucher</a></li>
+                                            <li><a href="shop-wishlist.html"><i class="mr-10 fi fi-rs-heart"></i>My Wishlist</a></li>
+                                            <li><a href="page-account.html"><i class="mr-10 fi fi-rs-settings-sliders"></i>Setting</a></li>
+                                            <li><a href="page-login.html"><i class="mr-10 fi fi-rs-sign-out"></i>Sign out</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -642,7 +642,7 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                    <a href="index.html" rel="nofollow"><i class="mr-5 fi-rs-home"></i>Home</a>
                     <span></span> Pages <span></span> My Account
                 </div>
             </div>
@@ -650,28 +650,28 @@
         <div class="page-content pt-150 pb-150">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-10 m-auto">
+                    <div class="m-auto col-lg-10">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="dashboard-menu">
                                     <ul class="nav flex-column" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false"><i class="fi-rs-settings-sliders mr-10"></i>Dashboard</a>
+                                            <a class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false"><i class="mr-10 fi-rs-settings-sliders"></i>Dashboard</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false"><i class="fi-rs-shopping-bag mr-10"></i>Orders</a>
+                                            <a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false"><i class="mr-10 fi-rs-shopping-bag"></i>Orders</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="track-orders-tab" data-bs-toggle="tab" href="#track-orders" role="tab" aria-controls="track-orders" aria-selected="false"><i class="fi-rs-shopping-cart-check mr-10"></i>Track Your Order</a>
+                                            <a class="nav-link" id="track-orders-tab" data-bs-toggle="tab" href="#track-orders" role="tab" aria-controls="track-orders" aria-selected="false"><i class="mr-10 fi-rs-shopping-cart-check"></i>Track Your Order</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true"><i class="fi-rs-marker mr-10"></i>My Address</a>
+                                            <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true"><i class="mr-10 fi-rs-marker"></i>My Address</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="true"><i class="fi-rs-user mr-10"></i>Account details</a>
+                                            <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="true"><i class="mr-10 fi-rs-user"></i>Account details</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="page-login.html"><i class="fi-rs-sign-out mr-10"></i>Logout</a>
+                                            <a class="nav-link" href="page-login.html"><i class="mr-10 fi-rs-sign-out"></i>Logout</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -746,11 +746,11 @@
                                                 <div class="row">
                                                     <div class="col-lg-8">
                                                         <form class="contact-form-style mt-30 mb-50" action="#" method="post">
-                                                            <div class="input-style mb-20">
+                                                            <div class="mb-20 input-style">
                                                                 <label>Order ID</label>
                                                                 <input name="order-id" placeholder="Found in your order confirmation email" type="text" />
                                                             </div>
-                                                            <div class="input-style mb-20">
+                                                            <div class="mb-20 input-style">
                                                                 <label>Billing email</label>
                                                                 <input name="billing-email" placeholder="Email you used during checkout" type="email" />
                                                             </div>
@@ -764,7 +764,7 @@
                                     <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
                                         <div class="row">
                                             <div class="col-lg-6">
-                                                <div class="card mb-3 mb-lg-0">
+                                                <div class="mb-3 card mb-lg-0">
                                                     <div class="card-header">
                                                         <h3 class="mb-0">Billing Address</h3>
                                                     </div>
@@ -849,7 +849,7 @@
             </div>
         </div>
     </main>
-    
+
     <footer class="main">
         <section class="newsletter mb-15">
             <div class="container">
@@ -858,13 +858,15 @@
                         <div class="position-relative newsletter-inner">
                             <div class="newsletter-content">
                                 <h2 class="mb-20">
-                                    Stay home & get your daily <br />
-                                    needs from our shop
+                                    Restez chez vous et achetez vos
+                                    produits de première
+                                     <br />
+                                    nécessité dans notre boutique
                                 </h2>
-                                <p class="mb-45">Start You'r Daily Shopping with <span class="text-brand">Nest Mart</span></p>
+                                <p class="mb-45">Commencez vos achats quotidiens avec <span class="text-brand">Cloleo</span></p>
                                 <form class="form-subcriber d-flex">
-                                    <input type="email" placeholder="Your emaill address" />
-                                    <button class="btn" type="submit">Subscribe</button>
+                                    <input type="email" placeholder="Votre adresse email" />
+                                    <button class="btn" type="submit">S'inscrire</button>
                                 </form>
                             </div>
                             <img src="assets/imgs/banner/banner-13.png" alt="newsletter" />
@@ -946,7 +948,7 @@
             </div>
         </section>
         <section class="section-padding footer-mid">
-            <div class="container pt-15 pb-20">
+            <div class="container pb-20 pt-15">
                 <div class="row">
                     <div class="col">
                         <div class="widget-about font-md mb-md-3 mb-lg-3 mb-xl-0">
@@ -1029,9 +1031,9 @@
                     <div class="footer-bottom"></div>
                 </div>
                 <div class="col-xl-4 col-lg-6 col-md-6">
-                    <p class="font-sm mb-0">&copy; 2025, <strong class="text-brand">Nest</strong> - HTML Ecommerce Template <br />All rights reserved</p>
+                    <p class="mb-0 font-sm">&copy; 2025, <strong class="text-brand">Nest</strong> - HTML Ecommerce Template <br />All rights reserved</p>
                 </div>
-                <div class="col-xl-4 col-lg-6 text-center d-none d-xl-block">
+                <div class="text-center col-xl-4 col-lg-6 d-none d-xl-block">
                     <div class="hotline d-lg-inline-flex mr-30">
                         <img src="assets/imgs/theme/icons/phone-call.svg" alt="hotline" />
                         <p>1900 - 6666<span>Working 8:00 - 22:00</span></p>
