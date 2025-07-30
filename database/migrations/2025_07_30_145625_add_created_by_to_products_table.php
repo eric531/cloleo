@@ -28,7 +28,7 @@ class AddCreatedByToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->dropColumn('created_by');
+            $table->dropColumn('created_by')->after('image');
         });
     }
 }
