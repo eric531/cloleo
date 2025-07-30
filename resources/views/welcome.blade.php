@@ -8,30 +8,30 @@
                 <div class="home-slide-cover mt-30">
                     <div class="hero-slider-1 style-4 dot-style-1 dot-style-1-position-1">
                         <div class="single-hero-slider single-animation-wrap"
-                            style="background-image: url("{{ asset('assets/imgs/slider/slider-1.png') }}")>
+                            style="background-image: url({{ asset('assets/imgs/slider/banniere1.jpg') }})">
                             <div class="slider-content">
-                                <h1 class="mb-40 display-2">
+                                {{-- <h1 class="mb-40 display-2">
                                     Don’t miss amazing<br />
                                     grocery deals
-                                </h1>
-                                <p class="mb-65">Sign up for the daily newsletter</p>
+                                </h1> --}}
+                                {{-- <p class="mb-65">Sign up for the daily newsletter</p> --}}
                                 <form class="form-subcriber d-flex">
                                     <input type="email" placeholder="Your emaill address" />
-                                    <button class="btn" type="submit">Subscribe</button>
+                                    <button class="btn" type="submit">S'inscrire</button>
                                 </form>
                             </div>
                         </div>
                         <div class="single-hero-slider single-animation-wrap"
-                            style="background-image: url({{ asset('assets/imgs/slider/slider-2.png') }})">
+                            style="background-image: url({{ asset('assets/imgs/slider/banniere2.jpg') }})">
                             <div class="slider-content">
-                                <h1 class="mb-40 display-2">
+                                {{-- <h1 class="mb-40 display-2">
                                     Fresh Vegetables<br />
                                     Big discount
-                                </h1>
-                                <p class="mb-65">Save up to 50% off on your first order</p>
+                                </h1> --}}
+                                {{-- <p class="mb-65">Save up to 50% off on your first order</p> --}}
                                 <form class="form-subcriber d-flex">
                                     <input type="email" placeholder="Your emaill address" />
-                                    <button class="btn" type="submit">Subscribe</button>
+                                    <button class="btn" type="submit">S'inscrire</button>
                                 </form>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
             <div class="container wow animate__animated animate__fadeIn">
                 <div class="section-title">
                     <div class="title">
-                        <h3>Featured Categories</h3>
+                        <h3>Catégories</h3>
                         {{-- <ul class="list-inline nav nav-tabs links">
                             @foreach ($categories as $category)
                             <li class="list-inline-item nav-item"><a class="nav-link" href="{{ route('category.show', $category->id) }}">{{ $category->name }}</a></li>
@@ -103,7 +103,7 @@
         <section class="product-tabs section-padding position-relative">
             <div class="container">
                 <div class="section-title style-2 wow animate__animated animate__fadeIn">
-                    <h3>Popular Products</h3>
+                    <h3>Produits populaires</h3>
 
                 </div>
                 <!--End nav-tabs-->
