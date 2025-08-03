@@ -1,7 +1,7 @@
 @extends('admin.template')
 
 @section('admin')
- 
+
 
 
     <main class="main-wrap">
@@ -13,13 +13,13 @@
                     <p>Add, edit or delete a category</p>
                 </div>
                 <div>
-                    <input type="text" placeholder="Search Categories" class="form-control bg-white" />
+                    <input type="text" placeholder="Search Categories" class="bg-white form-control" />
                 </div>
             </div>
             @if(session('error'))
             <div class="alert alert-danger">{{ session('error') }}</div>
            @endif
-   
+
            @if(session('success'))
                <div class="alert alert-success">{{ session('success') }}</div>
            @endif
@@ -66,8 +66,7 @@
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Description</th>
-                                            {{-- <th>Slug</th> --}}
-                                            {{-- <th>Order</th> --}}
+
                                             <th class="text-end">Action</th>
                                         </tr>
                                     </thead>
@@ -86,18 +85,14 @@
                                             <td>1</td> --}}
                                             <td class="text-end">
                                                 <div class="dropdown">
-                                                    <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">View detail</a>
-                                                        <a class="dropdown-item" href="#">Edit info</a>
-                                                        <a class="dropdown-item text-danger" href="#">Delete</a>
-                                                    </div>
+                                                    <a href="{{ route('admin.categories.edit', $categorie->id) }}" data-bs-toggle="dropdown" class="btn btn-light btn-sm font-sm"> <i class="material-icons md-edit"></a>
+
                                                 </div>
                                                 <!-- dropdown //end -->
                                             </td>
                                         </tr>
                                         @endforeach
-                                        
+
                                     </tbody>
                                 </table>
                             </div>

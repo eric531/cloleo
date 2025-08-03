@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
 {
@@ -13,7 +14,7 @@ class CategoryController extends Controller
         $categories = Category::OrderBy('created_at', 'desc')->get();
         return view('admin.categories.index', compact('categories'));
     }
-    
+
 
     public function create()
     {
@@ -32,10 +33,10 @@ class CategoryController extends Controller
             Session::flash('error', 'Veuillez remplir au moins un des champs.');
             return redirect()->back();
         }
-        
+
         if ($request->hasFile('image')) {
             $fileName = time().$request->file('image')->getClientOriginalName();
-            $path = $request->file('image')->storeAs('categories', $fileName, 'public'); 
+            $path = $request->file('image')->storeAs('categories', $fileName, 'public');
             $requestData["image"] = '/storage/'.$path;
         }
         $data = [
@@ -52,6 +53,7 @@ class CategoryController extends Controller
     {
         return view('admin.categories.edit', compact('category'));
     }
+    
 
     public function update(Request $request, Category $category)
     {
@@ -59,10 +61,25 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255|unique:categories,name,'.$category->id,
             'description' => 'nullable|string',
         ]);
-        
+
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('categories', 'public');
         }
+
+        if (!$request->has('name') && !$request->has('description')) {
+            Session::flash('error', 'Veuillez remplir au moins un des champs.');
+            return redirect()->back();
+        }
+
+        if (Category::where('name', $request->name)->first()) {
+            Session::flash('error', 'Cette catégorie existe deja.');
+            return redirect()->back();
+
+        }
+        if ($request->has('description')) {
+            $data['description'] = $request->description;
+        }
+
         $data = [
             'name' => $request->name,
             'description' => $request->description,

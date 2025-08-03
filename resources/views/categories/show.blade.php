@@ -76,20 +76,19 @@
                             data-wow-delay=".2s">
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
-                                    <a href="{{ route('products.show', $product->id) }}">
+                                    <a href="{{ route('product.show', $product->id) }}">
                                         <img class="default-img"
-                                            src="{{ asset('assets/imgs/banner/banner-5.png') }}"
+                                            src="{{ asset($product->image) }}"
                                             alt="" />
                                         <img class="hover-img"
-                                            src="{{ asset('assets/imgs/banner/banner-5.png') }}"
+                                            src="{{ asset($product->image) }}"
                                             alt="" />
                                     </a>
                                 </div>
                                 <div class="product-action-1">
                                     <a aria-label="Add To Wishlist" class="action-btn"
                                         href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                    {{-- <a aria-label="Compare" class="action-btn" href="shop-compare.html"><i
-                                            class="fi-rs-shuffle"></i></a> --}}
+                                
                                     <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal"
                                         data-bs-target="#quickViewModal-{{ $product->id }}"><i class="fi-rs-eye"></i></a>
                                 </div>
@@ -99,16 +98,16 @@
                             </div>
                             <div class="product-content-wrap">
                                 <div class="product-category">
-                                    <a href="{{ route('products.show', $product->id) }}">{{ $product->category->name }}</a>
+                                    <a href="{{ route('product.show', $product->id) }}">{{ $product->category->name }}</a>
                                 </div>
-                                <h2><a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a></h2>
+                                <h2><a href="{{ route('product.show', $product->id) }}">{{ $product->name }}</a></h2>
                                 <div class="product-rate-cover">
                                     <div class="product-rate d-inline-block">
                                         <div class="product-rating" style="width: 80%"></div>
                                     </div>
                                     <span class="ml-5 font-small text-muted"> (3.5)</span>
                                 </div>
-                                
+
                                 <div class="product-card-bottom">
                                     <div class="product-price">
                                         <span>  {{ $product->price }} XOF</span>
