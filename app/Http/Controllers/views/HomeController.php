@@ -19,11 +19,12 @@ class HomeController extends Controller
         $data['pubs'] = Pub::inRandomOrder()->get();
         $data['products'] = Product::with('type_product', 'category')->inRandomOrder()->get();
         $data['deals'] = Product::with('type_product')
-                        ->whereHas('type_product', function ($query) {
-                            $query->where('name', 'deal'); // Vérifie que le type de produit a "Deal" comme nom
-                        })
-                        ->inRandomOrder()
-                        ->get();
+            ->whereHas('type_product', function ($query) {
+                $query->where('name', 'like', '%deal%'); // Vérifie que le type de produit a "Deal" comme nom
+            })
+            ->inRandomOrder()
+            ->get();
+
 
         $query = Product::query();
 
@@ -44,23 +45,23 @@ class HomeController extends Controller
 
         // Récupérer les produits de cette catégorie avec les informations supplémentaires
         $data['products'] = Product::with('type_product', 'category')
-                        ->where('category_id', $category->id)
-                        ->inRandomOrder()
-                        ->paginate(20);
+            ->where('category_id', $category->id)
+            ->inRandomOrder()
+            ->paginate(20);
 
         $data['deals'] = Product::with('type_product')
-                        ->whereHas('type_product', function ($query) {
-                            $query->where('name', 'like', '%deal%'); // Vérifie que le type de produit a "Deal" comme nom
-                        })
-                        ->inRandomOrder()
-                        ->get();
+            ->whereHas('type_product', function ($query) {
+                $query->where('name', 'like', '%deal%'); // Vérifie que le type de produit a "Deal" comme nom
+            })
+            ->inRandomOrder()
+            ->get();
 
         $data['nouveaux'] = Product::with('type_product')
-                        ->whereHas('type_product', function ($query) {
-                            $query->where('name', 'like', '%nouveaute%');
-                        })
-                        ->inRandomOrder()
-                        ->get();
+            ->whereHas('type_product', function ($query) {
+                $query->where('name', 'like', '%nouveaute%');
+            })
+            ->inRandomOrder()
+            ->get();
 
         // Récupérer toutes les catégories pour le menu
         $data['pubs'] = Pub::where('created_at', '>', now()->subDays(30))->get();
@@ -81,14 +82,11 @@ class HomeController extends Controller
         $data['reviews'] = Review::where('product_id', $product->id)->latest()->get(); // Récupérer les avis
         $data['averageRating'] = $data['reviews']->avg('rating') ?? 0; // Calculer la moyenne des notes
         $data['nouveaux'] = Product::with('type_product')
-        ->whereHas('type_product', function ($query) {
-            $query->where('name', 'nouveaute');
-        })
-        ->inRandomOrder()
-        ->get();
+            ->whereHas('type_product', function ($query) {
+                $query->where('name', 'nouveaute');
+            })
+            ->inRandomOrder()
+            ->get();
         return view('products.show', $data);
     }
-
-
-
 }

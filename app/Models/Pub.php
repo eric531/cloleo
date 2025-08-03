@@ -13,7 +13,8 @@ class Pub extends Model
         'description',
         'image',
         'link',
-        'created_by',
+        'category_id',
+        // 'created_by',
     ];
 
     public function category()
