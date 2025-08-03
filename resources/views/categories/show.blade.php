@@ -8,7 +8,11 @@
             <div class="archive-header">
                 <div class="row align-items-center">
                     <div class="col-xl-3">
-                        <h1 class="mb-15">{{ $products[0]->category->name }}</h1>
+                        @if ($products->count() > 0)
+                            <h1 class="mb-15">{{ $products[0]->category->name }}</h1>
+                        @else
+                            <h1 class="mb-15">Aucun produit trouvé</h1>
+                        @endif
                         <div class="breadcrumb">
                             <a href="index.html" rel="nofollow"><i class="mr-5 fi-rs-home"></i>Home</a>
                             <span></span> Shop <span></span> Snack

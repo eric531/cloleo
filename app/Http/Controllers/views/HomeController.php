@@ -43,7 +43,11 @@ class HomeController extends Controller
     {
 
         // Récupérer les produits de cette catégorie avec les informations supplémentaires
-        $data['products'] = Product::with('type_product', 'category')->where('category_id', $category->id)->inRandomOrder()->paginate(20);
+        $data['products'] = Product::with('type_product', 'category')
+                        ->where('category_id', $category->id)
+                        ->inRandomOrder()
+                        ->paginate(20);
+
         $data['deals'] = Product::with('type_product')
                         ->whereHas('type_product', function ($query) {
                             $query->where('name', 'like', '%deal%'); // Vérifie que le type de produit a "Deal" comme nom
@@ -73,7 +77,7 @@ class HomeController extends Controller
         $data['isFavorite'] = auth()->check() ? auth()->user()->favorites()->where('product_id', $product->id)->exists() : false;
         $data['pubs'] = Pub::where('created_at', '>', now()->subDays(30))->get();
         $data['product'] = $product;
-        $data['products'] = Product::with('type_product', 'category')->get();
+        $data['products'] = Product::with('category')->findOrFail($product->id);;
         $data['reviews'] = Review::where('product_id', $product->id)->latest()->get(); // Récupérer les avis
         $data['averageRating'] = $data['reviews']->avg('rating') ?? 0; // Calculer la moyenne des notes
         $data['nouveaux'] = Product::with('type_product')

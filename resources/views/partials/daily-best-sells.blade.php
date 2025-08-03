@@ -35,7 +35,7 @@
                         </div>
                         <div class="product-content-wrap">
                             <div class="product-category">
-                                <a href="{{ route('category.show', $product->category->id) }}">{{ $product->category->name }}</a>
+                                <a href="{{ route('category.show', $product->category->id) }}">{{ $product->category->name??'' }}</a>
                             </div>
                             <h2><a href="{{ route('product.show', $product->id) }}">{{ Str::limit($product->description, 50) }}</a></h2>
                             <div class="product-rate d-inline-block">
