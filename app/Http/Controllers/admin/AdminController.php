@@ -32,9 +32,42 @@ class AdminController extends Controller
     }
 
     // fonction de creation
+    // public function pubStore(Request $request)
+    // {
+    //     // dd($request->all());
+    //     $request->validate([
+    //         'name' => 'required|string|max:255',
+    //         'description' => 'nullable|string',
+    //         'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:450',
+    //         'link' => 'nullable|string',
+    //         'category_id' => 'required',
+    //     ]);
+
+    //     $data = [
+    //         'name' => $request->name,
+    //         'description' => $request->description,
+    //         'link' => $request->link ?? null,
+
+    //         'category_id' => $request->category_id
+    //     ];
+    //     if ($request->hasFile('image')) {
+    //         $file = $request->file('image');
+    //         $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
+    //         $path = $file->storeAs('pubs', $filename, 'public');
+    //         $validated['image'] = '/storage/' . $path;
+    //     }
+    //     $max = 3;
+    //     for ($i = 0; $i < $max; $i++) {
+    //         $pub = Pub::create($data);
+    //         return redirect()->route('admin.pubs.index')->with('success', 'la pub: ' . $pub->name . ' a été ajouté.');
+    //     }
+    //     session()->flash('error', 'Nombre maximum de pubs atteint.');
+    //     return redirect()->route('admin.pubs.index')->with('error', 'Nombre maximum de pubs atteint.');
+    // }
+
     public function pubStore(Request $request)
     {
-        // dd($request->all());
+        // Validation des champs
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -43,27 +76,56 @@ class AdminController extends Controller
             'category_id' => 'required',
         ]);
 
+        // LIMITES
+        $limitParCategorie = 3;
+        $limiteGlobale = 20;
+        $limiteParUser = 5;
+
+        // Vérifier la limite par catégorie
+        $pubsDansCategorie = Pub::where('category_id', $request->category_id)->count();
+        if ($pubsDansCategorie >= $limitParCategorie) {
+            return redirect()->route('admin.pubs.index')
+                ->with('error', 'Limite atteinte : Cette catégorie contient déjà ' . $limitParCategorie . ' pubs.');
+        }
+
+        // Vérifier la limite globale
+        $totalPubs = Pub::count();
+        if ($totalPubs >= $limiteGlobale) {
+            return redirect()->route('admin.pubs.index')
+                ->with('error', 'Limite atteinte : Le nombre total de pubs est limité à ' . $limiteGlobale . '.');
+        }
+
+        // Vérifier la limite par utilisateur
+        // $pubsParUser = Pub::where('user_id', auth()->id())->count();
+        // if ($pubsParUser >= $limiteParUser) {
+        //     return redirect()->route('admin.pubs.index')
+        //         ->with('error', 'Limite atteinte : Vous avez atteint votre quota personnel de ' . $limiteParUser . ' pubs.');
+        // }
+
+        // Préparation des données à enregistrer
         $data = [
             'name' => $request->name,
             'description' => $request->description,
             'link' => $request->link ?? null,
-
-            'category_id' => $request->category_id
+            'category_id' => $request->category_id,
+            'user_id' => auth()->id(), // Assure-toi que ce champ existe dans la table `pubs`
         ];
+
+        // Traitement de l'image
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
             $path = $file->storeAs('pubs', $filename, 'public');
-            $validated['image'] = '/storage/' . $path;
+            $data['image'] = '/storage/' . $path;
         }
-        $max = 3;
-        for ($i = 0; $i < $max; $i++) {
-            $pub = Pub::create($data);
-            return redirect()->route('admin.pubs.index')->with('success', 'la pub: ' . $pub->name . ' a été ajouté.');
-        }
-        session()->flash('error', 'Nombre maximum de pubs atteint.');
-        return redirect()->route('admin.pubs.index')->with('error', 'Nombre maximum de pubs atteint.');
+
+        // Création de la pub
+        $pub = Pub::create($data);
+
+        return redirect()->route('admin.pubs.index')
+            ->with('success', 'La pub "' . $pub->name . '" a été ajoutée avec succès.');
     }
+
 
     // fonction de creation
     public function pubCreate()
