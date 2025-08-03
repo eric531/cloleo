@@ -46,14 +46,14 @@ class HomeController extends Controller
         $data['products'] = Product::with('type_product', 'category')->where('category_id', $category->id)->inRandomOrder()->paginate(20);
         $data['deals'] = Product::with('type_product')
                         ->whereHas('type_product', function ($query) {
-                            $query->where('name', 'deal'); // Vérifie que le type de produit a "Deal" comme nom
+                            $query->where('name', 'like', '%deal%'); // Vérifie que le type de produit a "Deal" comme nom
                         })
                         ->inRandomOrder()
                         ->get();
 
         $data['nouveaux'] = Product::with('type_product')
                         ->whereHas('type_product', function ($query) {
-                            $query->where('name', 'nouveaute');
+                            $query->where('name', 'like', '%nouveaute%');
                         })
                         ->inRandomOrder()
                         ->get();

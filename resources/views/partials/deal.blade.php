@@ -16,8 +16,8 @@
                         data-wow-delay="0">
                         <div class="product-img-action-wrap">
                             <div class="product-img">
-                                <a href="{{ route('products.show', $deal->id) }}">
-                                    <img src="{{ asset('assets/imgs/shop/thumbnail-2.jpg')}}" alt="" />
+                                <a href="{{ route('product.show', $deal->id) }}">
+                                    <img src="{{ asset($deal->image)}}" alt="" />
                                 </a>
                             </div>
                         </div>
@@ -26,7 +26,7 @@
                                 <div class="deals-countdown" data-countdown="2025/12/25 10:00:00"></div>
                             </div>
                             <div class="deals-content">
-                                <h2><a href="{{ route('products.show', $deal->id) }}">{{ Str::limit($deal->description, 20) }}</a></h2>
+                                <h2><a href="{{ route('product.show', $deal->id) }}">{{ Str::limit($deal->description, 20) }}</a></h2>
                                 <div class="product-rate-cover">
                                     <div class="product-rate d-inline-block">
                                         <div class="product-rating" style="width: 90%"></div>

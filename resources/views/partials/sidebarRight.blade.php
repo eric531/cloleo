@@ -10,7 +10,7 @@
         </ul>
     </div>
     <!-- Fillter By Price -->
-    <div class="sidebar-widget price_range range mb-30">
+    {{-- <div class="sidebar-widget price_range range mb-30">
         <h5 class="section-title style-1 mb-30">Fill by price</h5>
         <div class="price-filter">
             <div class="price-filter-inner">
@@ -22,28 +22,28 @@
             </div>
         </div>
 
-        <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i> Fillter</a>
-    </div>
+        <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="mr-5 fi-rs-filter"></i> Fillter</a>
+    </div> --}}
     <!-- Product sidebar Widget -->
     <div class="sidebar-widget product-sidebar mb-30 p-30 bg-grey border-radius-10">
-        <h5 class="section-title style-1 mb-30">New products</h5>
+        <h5 class="section-title style-1 mb-30">NOUVEAUX PRODUITS</h5>
 
         @foreach ($nouveaux->take(3) as $product )
-        <div class="single-post clearfix">
+        <div class="clearfix single-post">
             <div class="image">
-                <img src="assets/imgs/shop/thumbnail-3.jpg" alt="#" />
+                <img src="{{ asset($product->image) }}" alt="#" />
             </div>
-            <div class="content pt-10">
-                <h5><a href="shop-product-detail.html">{{ $product->name }}</a></h5>
-                <p class="price mb-0 mt-5">{{ $product->price }} XOF</p>
+            <div class="pt-10 content">
+                <h5><a href="{{ route('product.show', $product->id) }}">{{ $product->name }}</a></h5>
+                <p class="mt-5 mb-0 price">{{ $product->price }} XOF</p>
                 <div class="product-rate">
                     <div class="product-rating" style="width: 90%"></div>
                 </div>
             </div>
         </div>
         @endforeach
-        
-        
+
+
     </div>
     <div class="banner-img wow fadeIn mb-lg-0 animated d-lg-block d-none">
         <img src="{{ asset('assets/imgs/banner/banner-11.png') }}" alt="" />

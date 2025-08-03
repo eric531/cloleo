@@ -28,7 +28,8 @@
                     <div class="row">
                         <div class="col-md-3">
                             <form action="{{ route('admin.categories.update', $category->id) }}" method="POST">
-                               @METHODE('PUT')
+                              @csrf
+                                @method('PUT')
                                 <div class="mb-4">
                                     <label for="product_name" class="form-label">Name</label>
                                     <input type="text" name="name" placeholder="Type here" value="{{ $category->name }}" class="form-control" id="product_name" />
