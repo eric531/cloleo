@@ -9,7 +9,7 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="{{ route('home') }}" rel="nofollow"><i class="mr-5 fi-rs-home"></i>Home</a>
-                <span></span> <a href="{{ route('products.index') }}">{{ $products[0]->category->name??'' }}</a> <span></span> {{ $products->[0]name??'' }}
+                <span></span> <a href="{{ route('products.index') }}">{{ $products[0]->category->name??'' }}</a> <span></span> {{ $products[0]->name??'' }}
             </div>
         </div>
     </div>
