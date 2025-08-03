@@ -26,37 +26,37 @@
                                         <!-- MAIN SLIDES -->
                                         <div class="product-image-slider">
                                             <figure class="border-radius-10">
-                                                <img src="{{ asset($product->image) }}" alt="product image" />
+                                                <img style="height: 300px; width: 600px;" src="{{ asset($product->image) }}" alt="product image" />
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="{{ asset($product->image) }}" alt="product image" />
+                                                <img style="height: 300px; width: 600px;" src="{{ asset($product->image) }}" alt="product image" />
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="{{ asset($product->image) }}" alt="product image" />
+                                                <img style="height: 300px; width: 600px;" src="{{ asset($product->image) }}" alt="product image" />
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="{{ asset($product->image) }}" alt="product image" />
+                                                <img style="height: 300px; width: 600px;" src="{{ asset($product->image) }}" alt="product image" />
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="{{ asset($product->image) }}" alt="product image" />
+                                                <img style="height: 300px; width: 600px;" src="{{ asset($product->image) }}" alt="product image" />
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="{{ asset($product->image) }}" alt="product image" />
+                                                <img style="height: 300px; width: 600px;" src="{{ asset($product->image) }}" alt="product image" />
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="{{ asset($product->image) }}" alt="product image" />
+                                                <img style="height: 300px; width: 600px;" src="{{ asset($product->image) }}" alt="product image" />
                                             </figure>
 
                                         </div>
                                         <!-- THUMBNAILS -->
                                         <div class="slider-nav-thumbnails">
-                                            <div><img src="{{ asset($product->image)  }}" alt="product image" /></div>
-                                            <div><img src="{{ asset($product->image)  }}" alt="product image" /></div>
-                                            <div><img src="{{ asset($product->image)  }}" alt="product image" /></div>
-                                            <div><img src="{{ asset($product->image)  }}" alt="product image" /></div>
-                                            <div><img src="{{ asset($product->image)  }}" alt="product image" /></div>
-                                            <div><img src="{{ asset($product->image)  }}" alt="product image" /></div>
-                                            <div><img src="{{ asset($product->image)  }}" alt="product image" /></div>
+                                            <div><img style="height: 70px; width: 50px;" src="{{ asset($product->image)  }}" alt="product image" /></div>
+                                            <div><img style="height: 70px; width: 50px;" src="{{ asset($product->image)  }}" alt="product image" /></div>
+                                            <div><img style="height: 70px; width: 50px;" src="{{ asset($product->image)  }}" alt="product image" /></div>
+                                            <div><img style="height: 70px; width: 50px;" src="{{ asset($product->image)  }}" alt="product image" /></div>
+                                            <div><img style="height: 70px; width: 50px;" src="{{ asset($product->image)  }}" alt="product image" /></div>
+                                            <div><img style="height: 70px; width: 50px;" src="{{ asset($product->image)  }}" alt="product image" /></div>
+                                            <div><img style="height: 70px; width: 50px;" src="{{ asset($product->image)  }}" alt="product image" /></div>
                                         </div>
                                     </div>
                                     <!-- End Gallery -->

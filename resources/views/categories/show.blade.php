@@ -77,10 +77,10 @@
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="{{ route('product.show', $product->id) }}">
-                                        <img class="default-img"
+                                        <img class="default-img"style="height: 200px; width: 350px;"
                                             src="{{ asset($product->image) }}"
                                             alt="" />
-                                        <img class="hover-img"
+                                        <img class="hover-img" style="height: 200px; width: 350px;"
                                             src="{{ asset($product->image) }}"
                                             alt="" />
                                     </a>
@@ -88,7 +88,7 @@
                                 <div class="product-action-1">
                                     <a aria-label="Add To Wishlist" class="action-btn"
                                         href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                
+
                                     <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal"
                                         data-bs-target="#quickViewModal-{{ $product->id }}"><i class="fi-rs-eye"></i></a>
                                 </div>

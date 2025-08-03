@@ -83,7 +83,7 @@
                     <div class="col-lg-4 col-md-6">
                             <h1>test</h1>
                         <div class="banner-img wow animate__animated animate__fadeInUp" data-wow-delay="0">
-                                <img src="{{ asset('storage/' . $pub->image) }}" alt="" />
+                                <img src="{{ asset($pub->image) }}" alt="" />
                             <div class="banner-text">
                                 <h4>
                                   testrtrguhgjhoj

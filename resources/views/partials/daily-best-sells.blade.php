@@ -12,8 +12,8 @@
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
                                 <a href="{{ route('product.show', $product->id) }}">
-                                    <img class="default-img" src="{{ asset($product->image) }}" alt="{{ $product->name }}" />
-                                    <img class="hover-img" src="{{ asset($product->image) }}" alt="{{ $product->name }}" />
+                                    <img class="default-img" style="height: 150px; width: 300px;" src="{{ asset($product->image) }}" alt="{{ $product->name }}" />
+                                    <img class="hover-img" style="height: 150px; width: 300px;" src="{{ asset($product->image) }}" alt="{{ $product->name }}" />
                                 </a>
                             </div>
                             <div class="product-action-1">
